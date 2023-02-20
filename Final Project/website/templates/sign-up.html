@@ -1,0 +1,53 @@
+{% extends "base.html"%} {% block title %}Sign Up{% endblock %} {% block body %}
+<form action="/sign-up" method="POST">
+  <br />
+  <br />
+  <h3 align="center">Sign Up</h3>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input
+      autocomplete="off"
+      autofocus
+      class="form-control"
+      id="username"
+      name="username"
+      placeholder="Username"
+      type="text"
+    />
+    <label for="email">Email Address</label>
+    <input
+      autocomplete="off"
+      autofocus
+      class="form-control"
+      id="email"
+      name="email"
+      placeholder="Email"
+      type="text"
+    />
+    <label for="password">Password</label>
+
+    <input
+      class="form-control"
+      id="password"
+      name="password"
+      placeholder="Password"
+      type="password"
+    />
+
+    <label for="confirm">Confirm Password</label>
+    <div class="mb-3">
+      <input
+        class="form-control"
+        id="confirm"
+        name="confirm"
+        placeholder="Confirm Password"
+        type="password"
+      />
+    </div>
+    <div align="center">
+      <button class="btn btn-primary" type="submit">Sign Up</button>
+    </div>
+  </div>
+</form>
+
+{% endblock %}
