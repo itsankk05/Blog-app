@@ -35,11 +35,9 @@ def sign_up():
         username = request.form.get("username")
         password = request.form.get("password")
         confirm = request.form.get("confirm")
-        print(email)
 
         email_exists = User.query.filter_by(email=email).first()
         username_exists = User.query.filter_by(username=username).first()
-        print(email_exists)
         
         if email_exists:
             flash('Email Already Exists', category='error')
