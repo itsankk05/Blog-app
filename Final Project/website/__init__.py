@@ -13,7 +13,7 @@ def create_app():
     db.init_app(app)
     
     from .views import views
-    from .models import User
+    from .models import User, Post
     from .auth import auth
 
     app.register_blueprint(views, url_prefix= "/")
