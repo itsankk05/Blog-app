@@ -28,3 +28,34 @@ def create_post():
             return redirect(url_for("views.home"))
 
     return render_template("create_post.html", user=current_user)
+
+@views.route("/delete-post/<id>")
+@login_required
+def delete_post(id):
+    post= Post.query.filter_by(id=id).first()
+
+    if not post:
+        flash("Post does not exist", category='error')
+    
+    elif current_user.id != post.author:
+        flash('You do not have permission to delete this post.', category='error')
+    
+    else:
+        db.session.delete(post)
+        db.session.commit()
+        flash("Post Deleted", category='success')
+
+    return redirect(url_for('views.home'))
+
+@views.route("/posts/<username>")
+@login_required
+def posts(username):
+    user = User.query.filter_by(username=username).first()
+
+    if not user:
+        flash("No user exists", category="error")
+        return redirect(url_for('views.home'))
+    
+    posts = Post.query.filter_by(username=username).all()
+
+    return render_template("posts.html", user=current_user, posts=posts, username=username)
