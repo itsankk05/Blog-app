@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, flash, request, redirect, url_for
 from flask_login import login_required, current_user
-from .models import Post
+from .models import Post, User
 from . import db
 
 views = Blueprint("views", __name__)
@@ -56,6 +56,6 @@ def posts(username):
         flash("No user exists", category="error")
         return redirect(url_for('views.home'))
     
-    posts = Post.query.filter_by(username=username).all()
+    posts = user.posts
 
     return render_template("posts.html", user=current_user, posts=posts, username=username)
