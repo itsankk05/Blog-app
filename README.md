@@ -1,7 +1,5 @@
 # Blog-app
 
-#### Video Demo: https://youtu.be/vbsOoSdXEpw
-
 #### Description:
 
 Blog-app is a basic blogging application which allows users to create, update and delete their posts as well as view other users posts and comment on them. Users can also view other user's profile by clicking on their username. Every user needs to create a username while signing up for the app. The app takes the user's email and password to generate an account.
